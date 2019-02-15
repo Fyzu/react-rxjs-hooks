@@ -6,24 +6,36 @@
   "main": "dist/cjs/index.js",
   "typings": "dist/cjs/index.d.ts",
   "sideEffects": false,
+  "files": [
+    "dist/**/*"
+  ],
   "repository": "https://github.com/Fyzu/react-rxjs-hooks.git",
   "author": "Dmitry Petrov <dvpetrov.main@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "rm -rf dist/esm && tsc --module es2015 --target es5 --outDir dist/esm",
-    "build:cjs": "rm -rf dist/cjs && tsc --module commonjs --target es5 --outDir dist/cjs",
-    "lint": "tslint '{src,types}/**/*.ts{,x}'",
-    "format": "prettier --write '{src,types}/**/*.ts{,x}'"
+    "build:esm": "rimraf dist/esm && tsc --module es2015 --target es5 --outDir dist/esm",
+    "build:cjs": "rimraf dist/cjs && tsc --module commonjs --target es5 --outDir dist/cjs",
+    "lint": "tslint '{src,types,examples}/**/*.ts{,x}'",
+    "format": "prettier --write '{src,types,examples}/**/*.{j,t}s{,x}'",
+    "dev-server": "webpack-dev-server --config ./examples/webpack.config.js --progress --color"
   },
   "devDependencies": {
     "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.1",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.16.4",
     "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "rimraf": "^2.6.3",
     "rxjs": "^6.4.0",
-    "typescript": "^3.3.3",
+    "ts-loader": "^5.3.3",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
-    "prettier": "^1.16.4"
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
   },
   "peerDependencies": {
     "react": "^16.8.0",
