@@ -1,0 +1,23 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "rulesDirectory": [],
+  "jsRules": {
+    "no-unused-expression": true
+  },
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-pascal-case",
+        "allow-leading-underscore"
+      ]
+    }
+  }
+}
